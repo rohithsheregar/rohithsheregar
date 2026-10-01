@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://rohithsheregar.github.io/rohithsheregar/" target="_blank" rel="noopener">
-  <img width="100%" src="./assets/header.svg" alt="Rohith Sheregar — Building Intelligent Systems For A Better Tomorrow" />
+  <img width="100%" src="./assets/hero.webp" alt="Rohith Sheregar — Building Intelligent Systems For A Better Tomorrow" />
 </a>
 
 <br><br>
