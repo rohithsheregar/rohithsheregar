@@ -1,8 +1,6 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0a0a,50:111827,100:0a0a0a&height=190&section=header&text=Rohith%20Sheregar&fontSize=46&fontColor=5eead4&fontAlignY=38&animation=twinkling" />
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=15&duration=2500&pause=1200&color=5EEAD4&center=true&vCenter=true&width=650&lines=Computer+Science+%26+Engineering+Student;Building+deployable+software%2C+not+demos;AI%2FML+%C2%B7+Full-Stack+%C2%B7+Developer+Tooling;SMVITM+%C2%B7+VTU+%C2%B7+Karnataka%2C+India" />
+<img width="100%" src="./assets/header.svg" alt="Rohith Sheregar — SDE &amp; AI/ML Engineer" />
 
 <br><br>
 
@@ -86,7 +84,7 @@ Computer Science and Engineering student building deployable software across ful
 <tr>
 <td width="50%" valign="top">
 
-**[FlashMind](https://github.com/rohith-sheregar/FlashMind)**
+**[FlashMind](https://github.com/rohithsheregar/FlashMind)**
 <br>AI-powered study companion — turns documents into flashcards, quizzes, summaries, and mind maps.
 <br>`Python` `Flask` `MongoDB` `LLM`
 <br>[Live demo →](https://flashmind-ypqc.onrender.com/)
@@ -94,7 +92,7 @@ Computer Science and Engineering student building deployable software across ful
 </td>
 <td width="50%" valign="top">
 
-**[Illegal Bilge-Dumping Detection](https://github.com/rohith-sheregar/Oil-Spill-Detection)**
+**[Illegal Bilge-Dumping Detection](https://github.com/rohithsheregar/Oil-Spill-Detection)**
 <br>4-member team project detecting illegal oil discharge via Sentinel-1 SAR + AIS fusion, reaching 79% combined anomaly-detection accuracy. Research paper in preparation.
 <br>`PyTorch` `Isolation Forest` `Random Forest` `SAR` `AIS`
 
@@ -103,14 +101,14 @@ Computer Science and Engineering student building deployable software across ful
 <tr>
 <td width="50%" valign="top">
 
-**[ContextOS](https://github.com/rohith-sheregar/ContextOS)**
+**[ContextOS](https://github.com/rohithsheregar/ContextOS)**
 <br>Local-first CLI daemon published on PyPI (`pip install contextos-daemon`) that records developer activity and answers natural-language questions about past work.
 <br>`Python` `SQLite` `sqlite-vec` `ONNX` `PyPI`
 
 </td>
 <td width="50%" valign="top">
 
-**[College Feedback System](https://github.com/rohith-sheregar/Feedback-System)**
+**[College Feedback System](https://github.com/rohithsheregar/Feedback-System)**
 <br>Role-based academic feedback platform with dynamic questionnaires and faculty analytics.
 <br>`Java` `Spring Boot` `MySQL`
 <br>[Live demo →](https://feedback-system-w0gj.onrender.com)
@@ -120,7 +118,7 @@ Computer Science and Engineering student building deployable software across ful
 <tr>
 <td width="50%" valign="top">
 
-**[React Scrollytelling](https://github.com/rohith-sheregar/React-Mini-Project)**
+**[React Scrollytelling](https://github.com/rohithsheregar/React-Mini-Project)**
 <br>Scroll-driven storytelling site with animated transitions and lightweight 3D.
 <br>`React` `Three.js` `GSAP`
 <br>[Live demo →](https://react-mini-project-team15.netlify.app/)
@@ -128,7 +126,7 @@ Computer Science and Engineering student building deployable software across ful
 </td>
 <td width="50%" valign="top">
 
-**[Ludo Game](https://github.com/rohith-sheregar/Ludo)**
+**[Ludo Game](https://github.com/rohithsheregar/Ludo)**
 <br>Four-player Ludo built in C++ with a full turn-based rules engine.
 <br>`C++` `OOP` `Game Logic`
 
@@ -182,15 +180,15 @@ Computer Science and Engineering student building deployable software across ful
 
 <div align="center">
 
-<img width="65%" src="https://github-stats-extended.vercel.app/api?username=rohith-sheregar&show_icons=true&count_private=true&hide_border=true&title_color=5eead4&icon_color=f0a868&text_color=c9d1d9&bg_color=0a0a0a&rank_icon=github" />
+<img width="65%" src="https://github-stats-extended.vercel.app/api?username=rohithsheregar&show_icons=true&count_private=true&hide_border=true&title_color=5eead4&icon_color=f0a868&text_color=c9d1d9&bg_color=0a0a0a&rank_icon=github" />
 
 <br>
 
-<img width="65%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=rohith-sheregar&layout=compact&hide_border=true&title_color=5eead4&text_color=c9d1d9&bg_color=0a0a0a&langs_count=8" />
+<img width="65%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=rohithsheregar&layout=compact&hide_border=true&title_color=5eead4&text_color=c9d1d9&bg_color=0a0a0a&langs_count=8" />
 
 <br>
 
-<img width="65%" src="https://streak-stats.demolab.com/?user=rohith-sheregar&theme=dark&background=0a0a0a&hide_border=true&stroke=5eead4&ring=f0a868&fire=f0a868&currStreakLabel=5eead4" />
+<img width="65%" src="https://streak-stats.demolab.com/?user=rohithsheregar&theme=dark&background=0a0a0a&hide_border=true&stroke=5eead4&ring=f0a868&fire=f0a868&currStreakLabel=5eead4" />
 
 </div>
 
@@ -201,9 +199,9 @@ Computer Science and Engineering student building deployable software across ful
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rohith-sheregar/rohith-sheregar/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rohith-sheregar/rohith-sheregar/output/github-contribution-grid-snake.svg">
-  <img alt="contribution snake animation" src="https://raw.githubusercontent.com/rohith-sheregar/rohith-sheregar/output/github-contribution-grid-snake.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rohithsheregar/rohithsheregar/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rohithsheregar/rohithsheregar/output/github-contribution-grid-snake.svg">
+  <img alt="contribution snake animation" src="https://raw.githubusercontent.com/rohithsheregar/rohithsheregar/output/github-contribution-grid-snake.svg" width="100%">
 </picture>
 
 </div>
@@ -212,7 +210,7 @@ Computer Science and Engineering student building deployable software across ful
 
 <div align="center">
 
-<img src="https://komarev.com/ghpvc/?username=rohith-sheregar&label=Profile+Views&color=5eead4&style=for-the-badge" />
+<img src="https://komarev.com/ghpvc/?username=rohithsheregar&label=Profile+Views&color=5eead4&style=for-the-badge" />
 
 <br><br>
 
