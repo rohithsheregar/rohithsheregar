@@ -1,567 +1,561 @@
-<svg width="100%" height="100%" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+<svg width="100%" height="100%" viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Background Gradients -->
-    <radialGradient id="bgGlow" cx="50%" cy="40%" r="65%">
-      <stop offset="0%" stop-color="#0e2a36" stop-opacity="0.85"/>
-      <stop offset="35%" stop-color="#0a1826" stop-opacity="0.6"/>
-      <stop offset="70%" stop-color="#080c14" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#04060a" stop-opacity="1"/>
+    <!-- Deep Space Background Gradient -->
+    <radialGradient id="spaceBg" cx="50%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#071026"/>
+      <stop offset="35%" stop-color="#050a18"/>
+      <stop offset="70%" stop-color="#03050c"/>
+      <stop offset="100%" stop-color="#010206"/>
     </radialGradient>
 
-    <radialGradient id="cyanOrb" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.35"/>
-      <stop offset="50%" stop-color="#2dd4bf" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
+    <!-- Warm Amber Horizon Glow (under planet) -->
+    <radialGradient id="amberNebula" cx="82%" cy="65%" r="40%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="35%" stop-color="#ea580c" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#7c2d12" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
     </radialGradient>
 
-    <radialGradient id="amberOrb" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#f0a868" stop-opacity="0.25"/>
-      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#f0a868" stop-opacity="0"/>
+    <!-- Celestial Blue-Violet Nebula (above mountains) -->
+    <radialGradient id="violetNebula" cx="30%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.12"/>
+      <stop offset="45%" stop-color="#3b82f6" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
     </radialGradient>
 
-    <radialGradient id="violetOrb" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.28"/>
-      <stop offset="60%" stop-color="#6366f1" stop-opacity="0.07"/>
-      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    <!-- Planet Night Oceans Base -->
+    <radialGradient id="planetOcean" cx="72%" cy="32%" r="75%">
+      <stop offset="0%" stop-color="#142c54"/>
+      <stop offset="40%" stop-color="#0a1936"/>
+      <stop offset="75%" stop-color="#040b19"/>
+      <stop offset="100%" stop-color="#01040a"/>
     </radialGradient>
 
-    <!-- 3D Title Metallic Gradient with Smooth Sweeping Sheen -->
-    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff">
-        <animate attributeName="stop-color" values="#ffffff;#a7f3d0;#5eead4;#ffffff" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="25%" stop-color="#99f6e4"/>
-      <stop offset="50%" stop-color="#5eead4">
-        <animate attributeName="stop-color" values="#5eead4;#ffffff;#2dd4bf;#5eead4" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="75%" stop-color="#2dd4bf"/>
-      <stop offset="100%" stop-color="#ffffff">
-        <animate attributeName="stop-color" values="#ffffff;#5eead4;#a7f3d0;#ffffff" dur="6s" repeatCount="indefinite"/>
-      </stop>
+    <!-- Planet Day/Night Terminator (Shadow from Left) -->
+    <linearGradient id="planetTerminator" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#010308" stop-opacity="0.96"/>
+      <stop offset="45%" stop-color="#020713" stop-opacity="0.82"/>
+      <stop offset="72%" stop-color="#05122b" stop-opacity="0.45"/>
+      <stop offset="90%" stop-color="#0c234d" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
     </linearGradient>
 
-    <!-- Sheen Sweep Gradient -->
-    <linearGradient id="sheenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Planet Sunrise Rim Flare (Upper-Right) -->
+    <radialGradient id="planetSunrise" cx="88%" cy="26%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="15%" stop-color="#fef08a" stop-opacity="0.85"/>
+      <stop offset="35%" stop-color="#f59e0b" stop-opacity="0.6"/>
+      <stop offset="65%" stop-color="#ea580c" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Cool Blue Atmospheric Rim Glow -->
+    <radialGradient id="atmoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="85%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="94%" stop-color="#38bdf8" stop-opacity="0.45"/>
+      <stop offset="98%" stop-color="#60a5fa" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Golden Orbital Ring Gradient -->
+    <linearGradient id="goldOrbitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="35%" stop-color="#fcd34d" stop-opacity="0.5"/>
+      <stop offset="65%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="80%" stop-color="#f59e0b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Polished Silver Chrome Gradient for R Monogram -->
+    <linearGradient id="silverChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#e2e8f0"/>
+      <stop offset="45%" stop-color="#94a3b8"/>
+      <stop offset="60%" stop-color="#f8fafc"/>
+      <stop offset="80%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+
+    <!-- R Metallic Bevel Highlight -->
+    <linearGradient id="chromeBevel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#94a3b8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Serif Title Gradient: Silver transitioning to Blue-Violet -->
+    <linearGradient id="titleSilverViolet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#f1f5f9"/>
+      <stop offset="52%" stop-color="#cbd5e1"/>
+      <stop offset="70%" stop-color="#a5b4fc"/>
+      <stop offset="88%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <!-- Tagline Blue-Violet Gradient -->
+    <linearGradient id="taglineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="58%" stop-color="#cbd5e1"/>
+      <stop offset="62%" stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+
+    <!-- Specular Sheen Gradient for R -->
+    <linearGradient id="sheenPass" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0"/>
       <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="65%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
 
-    <!-- Badge Gradients -->
-    <linearGradient id="badgeGradCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#164e63" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#083344" stop-opacity="0.2"/>
-    </linearGradient>
+    <!-- Moon Texture / Lighting -->
+    <radialGradient id="moonGrad" cx="70%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="35%" stop-color="#94a3b8"/>
+      <stop offset="70%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
 
-    <linearGradient id="badgeGradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#78350f" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#451a03" stop-opacity="0.15"/>
-    </linearGradient>
-
-    <linearGradient id="badgeGradIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#312e81" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#1e1b4b" stop-opacity="0.15"/>
-    </linearGradient>
-
-    <!-- Border Gradients -->
-    <linearGradient id="cyanBorderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.2"/>
-      <stop offset="50%" stop-color="#5eead4" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#5eead4" stop-opacity="0.2"/>
-    </linearGradient>
-
-    <linearGradient id="linePulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#5eead4" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#5eead4" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#f0a868" stop-opacity="0.9"/>
-      <stop offset="70%" stop-color="#5eead4" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Glowing Filters -->
-    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <!-- Glow Filters -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <filter id="shadow3D" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.7"/>
+    <filter id="starGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
 
-    <!-- Grid Pattern -->
-    <pattern id="cyberGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1f293d" stroke-width="0.75" stroke-opacity="0.45"/>
-      <circle cx="0" cy="0" r="1.2" fill="#5eead4" fill-opacity="0.3"/>
-    </pattern>
+    <filter id="mountainShadow" x="0%" y="0%" width="100%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="6" flood-color="#010307" flood-opacity="0.9"/>
+    </filter>
 
-    <!-- Typing Mask for Text Reveal -->
-    <clipPath id="typingClip">
-      <rect x="310" y="195" width="600" height="40">
-        <animate attributeName="width" values="0; 580; 580; 0" keyTimes="0; 0.22; 0.88; 1" dur="4s" repeatCount="indefinite" />
-      </rect>
+    <!-- Planet Clip Sphere (Radius 135 at 960, 190) -->
+    <clipPath id="planetClip">
+      <circle cx="960" cy="190" r="135"/>
     </clipPath>
 
-    <!-- Clip path for text specular sheen -->
-    <clipPath id="titleClip">
-      <text class="font-sans" font-size="52" font-weight="900" letter-spacing="6" text-anchor="middle" y="0">
-        ROHITH SHEREGAR
-      </text>
+    <!-- R Monogram Clip for Sheen Sweep -->
+    <clipPath id="rClip">
+      <path d="M 0,0 L 26,0 C 44,0 56,8 56,24 C 56,36 48,44 38,47 L 58,82 L 40,82 L 23,50 L 14,50 L 14,82 L 0,82 Z M 14,12 L 14,38 L 26,38 C 36,38 42,32 42,25 C 42,18 36,12 26,12 Z"/>
     </clipPath>
   </defs>
 
   <style><![CDATA[
-    /* Base typography */
-    .font-mono {
-      font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, monospace;
+    /* Font stacks */
+    .title-serif {
+      font-family: 'Cinzel', 'Cormorant Garamond', 'Playfair Display', 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+      font-weight: 500;
+      letter-spacing: 0.18em;
     }
-    .font-sans {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    /* Ambient floating and animations */
-    @keyframes float3D {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-7px) rotate(1.5deg); }
+    .tagline-sans {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.32em;
     }
 
-    @keyframes floatReverse {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(7px) rotate(-1.5deg); }
+    /* Cinematic rotation for continent city lights (60s loop) */
+    @keyframes rotatePlanetSurfaces {
+      0% { transform: translateX(0px); }
+      100% { transform: translateX(-360px); }
     }
 
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.65; transform: scale(1.08); }
+    /* Metallic sheen sweep across the R emblem */
+    @keyframes sheenSweepR {
+      0%, 25% { transform: translateX(-90px) skewX(-20deg); }
+      40% { transform: translateX(90px) skewX(-20deg); }
+      100% { transform: translateX(90px) skewX(-20deg); }
     }
 
-    @keyframes rotate3DCube {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    /* Orbital moon revolution */
+    @keyframes orbitTravel {
+      0% { transform: rotate(0deg) translate(195px, 0px) rotate(0deg); }
+      100% { transform: rotate(360deg) translate(195px, 0px) rotate(-360deg); }
     }
 
-    @keyframes rotateReverse {
-      0% { transform: rotate(360deg); }
-      100% { transform: rotate(0deg); }
+    /* Star twinkling */
+    @keyframes starPulseA {
+      0%, 100% { opacity: 0.25; transform: scale(0.9); }
+      50% { opacity: 0.95; transform: scale(1.15); }
+    }
+    @keyframes starPulseB {
+      0%, 100% { opacity: 0.85; transform: scale(1.1); }
+      50% { opacity: 0.2; transform: scale(0.85); }
+    }
+    @keyframes starPulseC {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
     }
 
-    @keyframes radarPing {
-      0% { r: 4px; opacity: 1; }
-      100% { r: 16px; opacity: 0; }
+    /* Subtle atmospheric breathing */
+    @keyframes atmoPulse {
+      0%, 100% { opacity: 0.75; }
+      50% { opacity: 0.95; }
     }
 
-    @keyframes blinkCursor {
-      0%, 48% { opacity: 1; }
-      50%, 100% { opacity: 0; }
+    /* Slow R orbit float */
+    @keyframes rOrbitFloat {
+      0%, 100% { transform: rotate(-24deg) translateY(0px); }
+      50% { transform: rotate(-24deg) translateY(-2px); }
     }
 
-    @keyframes sheenSweep {
-      0% { transform: translateX(-400px) skewX(-25deg); }
-      40%, 100% { transform: translateX(900px) skewX(-25deg); }
+    .planet-rotator {
+      animation: rotatePlanetSurfaces 60s linear infinite;
     }
-
-    @keyframes gridShift {
-      0% { stroke-dashoffset: 0; }
-      100% { stroke-dashoffset: 80; }
+    .sheen-r {
+      animation: sheenSweepR 8s ease-in-out infinite;
     }
-
-    /* 4-Step Text Cycling Animation (16s cycle = 4s per item) */
-    @keyframes cycleItem1 {
-      0% { opacity: 0; transform: translateY(12px); }
-      3% { opacity: 1; transform: translateY(0px); }
-      22% { opacity: 1; transform: translateY(0px); }
-      25% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 0; transform: translateY(-10px); }
-    }
-
-    @keyframes cycleItem2 {
-      0%, 25% { opacity: 0; transform: translateY(12px); }
-      28% { opacity: 1; transform: translateY(0px); }
-      47% { opacity: 1; transform: translateY(0px); }
-      50% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 0; transform: translateY(-10px); }
-    }
-
-    @keyframes cycleItem3 {
-      0%, 50% { opacity: 0; transform: translateY(12px); }
-      53% { opacity: 1; transform: translateY(0px); }
-      72% { opacity: 1; transform: translateY(0px); }
-      75% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 0; transform: translateY(-10px); }
-    }
-
-    @keyframes cycleItem4 {
-      0%, 75% { opacity: 0; transform: translateY(12px); }
-      78% { opacity: 1; transform: translateY(0px); }
-      97% { opacity: 1; transform: translateY(0px); }
-      100% { opacity: 0; transform: translateY(-10px); }
-    }
-
-    /* Floating badges with staggered delay */
-    .badge-1 { animation: float3D 4.5s ease-in-out infinite; }
-    .badge-2 { animation: floatReverse 5s ease-in-out infinite 0.6s; }
-    .badge-3 { animation: float3D 4.8s ease-in-out infinite 1.2s; }
-    .badge-4 { animation: floatReverse 5.2s ease-in-out infinite 1.8s; }
-
-    .glow-orb-cyan { animation: pulseGlow 6s ease-in-out infinite; transform-origin: center; }
-    .glow-orb-amber { animation: pulseGlow 7s ease-in-out infinite 1s; transform-origin: center; }
-
-    .cube-rotate { animation: rotate3DCube 20s linear infinite; transform-origin: 155px 195px; }
-    .cube-rotate-rev { animation: rotateReverse 14s linear infinite; transform-origin: 155px 195px; }
-    .right-node-rotate { animation: rotate3DCube 24s linear infinite; transform-origin: 1045px 195px; }
-    .right-node-rev { animation: rotateReverse 16s linear infinite; transform-origin: 1045px 195px; }
-
-    .ping-circle { animation: radarPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite; }
-    .cursor-blink { animation: blinkCursor 0.9s infinite; }
-
-    .cycle-1 { animation: cycleItem1 16s ease-in-out infinite; }
-    .cycle-2 { animation: cycleItem2 16s ease-in-out infinite; }
-    .cycle-3 { animation: cycleItem3 16s ease-in-out infinite; }
-    .cycle-4 { animation: cycleItem4 16s ease-in-out infinite; }
-
-    .sheen-anim { animation: sheenSweep 6s ease-in-out infinite; }
-    .grid-lines { animation: gridShift 8s linear infinite; }
+    .star-a { animation: starPulseA 4s ease-in-out infinite; transform-origin: center; }
+    .star-b { animation: starPulseB 5.5s ease-in-out infinite 1s; transform-origin: center; }
+    .star-c { animation: starPulseC 3.5s ease-in-out infinite 0.5s; transform-origin: center; }
+    .atmo-breathe { animation: atmoPulse 6s ease-in-out infinite; }
+    .r-orbit { animation: rOrbitFloat 6s ease-in-out infinite; transform-origin: 30px 30px; }
   ]]></style>
 
-  <!-- Deep Canvas Base -->
-  <rect width="1200" height="400" rx="16" fill="#07090e"/>
-  <rect width="1200" height="400" rx="16" fill="url(#bgGlow)"/>
-
-  <!-- Perspective Horizon Grid -->
-  <g opacity="0.32">
-    <!-- Perspective lines receding -->
-    <line x1="600" y1="180" x2="0" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-    <line x1="600" y1="180" x2="160" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-    <line x1="600" y1="180" x2="320" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-    <line x1="600" y1="180" x2="480" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-    <line x1="600" y1="180" x2="720" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-    <line x1="600" y1="180" x2="880" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-    <line x1="600" y1="180" x2="1040" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-    <line x1="600" y1="180" x2="1200" y2="400" stroke="#1f3347" stroke-width="1.2"/>
-
-    <!-- Horizontal grid intervals -->
-    <line x1="450" y1="230" x2="750" y2="230" stroke="#1f3347" stroke-width="0.8"/>
-    <line x1="330" y1="275" x2="870" y2="275" stroke="#1f3347" stroke-width="0.9"/>
-    <line x1="190" y1="330" x2="1010" y2="330" stroke="#1f3347" stroke-width="1"/>
-    <line x1="0" y1="395" x2="1200" y2="395" stroke="#1f3347" stroke-width="1.2"/>
-  </g>
-
-  <!-- Ambient Light Orbs -->
-  <circle cx="200" cy="180" r="160" fill="url(#cyanOrb)" class="glow-orb-cyan"/>
-  <circle cx="600" cy="140" r="220" fill="url(#cyanOrb)" class="glow-orb-cyan"/>
-  <circle cx="980" cy="220" r="180" fill="url(#amberOrb)" class="glow-orb-amber"/>
-  <circle cx="600" cy="280" r="140" fill="url(#violetOrb)"/>
-
-  <!-- Subtle Cyber Dot Grid Pattern Overlay -->
-  <rect x="0" y="0" width="1200" height="400" fill="url(#cyberGrid)" rx="16" opacity="0.7"/>
-
-  <!-- Cybernetic Corner Frame Accents -->
-  <g stroke="#5eead4" stroke-width="1.8" fill="none" opacity="0.6">
-    <!-- Top-Left -->
-    <path d="M 24 45 L 24 24 L 45 24"/>
-    <circle cx="24" cy="24" r="2.5" fill="#5eead4"/>
-
-    <!-- Top-Right -->
-    <path d="M 1176 45 L 1176 24 L 1155 24"/>
-    <circle cx="1176" cy="24" r="2.5" fill="#5eead4"/>
-
-    <!-- Bottom-Left -->
-    <path d="M 24 355 L 24 376 L 45 376"/>
-    <circle cx="24" cy="376" r="2.5" fill="#5eead4"/>
-
-    <!-- Bottom-Right -->
-    <path d="M 1176 355 L 1176 376 L 1155 376"/>
-    <circle cx="1176" cy="376" r="2.5" fill="#5eead4"/>
-  </g>
-
-  <!-- Outer Frame Border -->
-  <rect x="12" y="12" width="1176" height="376" rx="14" fill="none" stroke="#5eead4" stroke-width="1" stroke-opacity="0.18"/>
+  <!-- ======================================================== -->
+  <!-- 1. DEEP SPACE ENVIRONMENT & NEBULA -->
+  <!-- ======================================================== -->
+  <rect width="1200" height="420" fill="url(#spaceBg)"/>
+  <rect width="1200" height="420" fill="url(#violetNebula)"/>
+  <rect width="1200" height="420" fill="url(#amberNebula)"/>
 
   <!-- ======================================================== -->
-  <!-- LEFT SIDE: 3D HOLOGRAPHIC ISOMETRIC TESSERACT & PARTICLES -->
+  <!-- 2. STAR FIELD (SPARSE, LAYERED, DEPTH-BASED) -->
   <!-- ======================================================== -->
-  <g id="left-3d-hologram">
-    <!-- Orbital Rings -->
-    <g class="cube-rotate">
-      <ellipse cx="155" cy="195" rx="72" ry="28" fill="none" stroke="#5eead4" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.6"/>
-      <circle cx="227" cy="195" r="3.5" fill="#5eead4" filter="url(#subtleGlow)"/>
-      <circle cx="83" cy="195" r="2" fill="#5eead4" opacity="0.6"/>
+  <g id="starfield" opacity="0.85">
+    <!-- Distant faint micro-stars -->
+    <circle cx="85" cy="45" r="0.75" fill="#e2e8f0" opacity="0.5"/>
+    <circle cx="160" cy="110" r="0.65" fill="#93c5fd" opacity="0.4"/>
+    <circle cx="240" cy="60" r="0.8" fill="#e2e8f0" opacity="0.6"/>
+    <circle cx="310" cy="130" r="0.7" fill="#fef08a" opacity="0.5"/>
+    <circle cx="395" cy="75" r="0.6" fill="#e2e8f0" opacity="0.45"/>
+    <circle cx="480" cy="115" r="0.8" fill="#cbd5e1" opacity="0.55"/>
+    <circle cx="560" cy="55" r="0.7" fill="#93c5fd" opacity="0.5"/>
+    <circle cx="645" cy="140" r="0.65" fill="#e2e8f0" opacity="0.4"/>
+    <circle cx="710" cy="85" r="0.85" fill="#fef08a" opacity="0.6"/>
+    <circle cx="775" cy="65" r="0.75" fill="#e2e8f0" opacity="0.5"/>
+    <circle cx="830" cy="125" r="0.6" fill="#93c5fd" opacity="0.45"/>
+    <circle cx="1130" cy="60" r="0.8" fill="#e2e8f0" opacity="0.6"/>
+    <circle cx="1165" cy="135" r="0.7" fill="#cbd5e1" opacity="0.5"/>
+
+    <!-- Midground Twinkling Stars (Class A) -->
+    <g class="star-a">
+      <circle cx="120" cy="75" r="1.3" fill="#ffffff" filter="url(#starGlow)"/>
+      <circle cx="280" cy="95" r="1.1" fill="#e0f2fe"/>
+      <circle cx="510" cy="45" r="1.4" fill="#fef08a" filter="url(#starGlow)"/>
+      <circle cx="690" cy="110" r="1.2" fill="#ffffff"/>
+      <circle cx="860" cy="40" r="1.3" fill="#93c5fd" filter="url(#starGlow)"/>
+      <circle cx="1145" cy="90" r="1.2" fill="#ffffff"/>
     </g>
 
-    <g class="cube-rotate-rev">
-      <ellipse cx="155" cy="195" rx="72" ry="28" fill="none" stroke="#f0a868" stroke-width="1" stroke-dasharray="4,6" opacity="0.55" transform="rotate(-55 155 195)"/>
-      <circle cx="155" cy="123" r="3" fill="#f0a868" filter="url(#subtleGlow)"/>
+    <!-- Midground Twinkling Stars (Class B) -->
+    <g class="star-b">
+      <circle cx="65" cy="130" r="1.2" fill="#cbd5e1"/>
+      <circle cx="210" cy="40" r="1.4" fill="#ffffff" filter="url(#starGlow)"/>
+      <circle cx="440" cy="130" r="1.0" fill="#93c5fd"/>
+      <circle cx="615" cy="80" r="1.3" fill="#fef08a"/>
+      <circle cx="750" cy="35" r="1.2" fill="#ffffff"/>
+      <circle cx="1105" cy="155" r="1.1" fill="#e0f2fe"/>
     </g>
 
-    <!-- Isometric 3D Cube Structure -->
-    <g transform="translate(155, 195)" filter="url(#shadow3D)">
-      <!-- Cube Outer Wireframe Faces -->
-      <!-- Top Face -->
-      <polygon points="0,-48 42,-24 0,0 -42,-24" fill="#0f766e" fill-opacity="0.32" stroke="#5eead4" stroke-width="1.6"/>
-      <!-- Left Face -->
-      <polygon points="-42,-24 0,0 0,48 -42,24" fill="#134e4a" fill-opacity="0.5" stroke="#2dd4bf" stroke-width="1.6"/>
-      <!-- Right Face -->
-      <polygon points="0,0 42,-24 42,24 0,48" fill="#115e59" fill-opacity="0.4" stroke="#5eead4" stroke-width="1.6"/>
+    <!-- Brilliant Focal Stars with 4-Point Diffraction Spike -->
+    <g class="star-c" transform="translate(460, 68)">
+      <circle cx="0" cy="0" r="1.6" fill="#ffffff" filter="url(#starGlow)"/>
+      <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffffff" stroke-width="0.5" opacity="0.75"/>
+      <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffffff" stroke-width="0.5" opacity="0.75"/>
+    </g>
 
-      <!-- Inner Floating Crystal Diamond -->
-      <g filter="url(#neonGlow)">
-        <!-- Inner Diamond Core -->
-        <polygon points="0,-22 18,-11 0,0 -18,-11" fill="#5eead4" fill-opacity="0.7"/>
-        <polygon points="-18,-11 0,0 0,22 -18,11" fill="#2dd4bf" fill-opacity="0.85"/>
-        <polygon points="0,0 18,-11 18,11 0,22" fill="#99f6e4" fill-opacity="0.9"/>
+    <g class="star-a" transform="translate(1075, 45)">
+      <circle cx="0" cy="0" r="1.8" fill="#93c5fd" filter="url(#starGlow)"/>
+      <line x1="-6" y1="0" x2="6" y2="0" stroke="#93c5fd" stroke-width="0.5" opacity="0.8"/>
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#93c5fd" stroke-width="0.5" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 3. COMPANION MOON (UPPER RIGHT OF PLANET) -->
+  <!-- ======================================================== -->
+  <g id="companion-moon" transform="translate(1105, 105)">
+    <!-- Moon Body -->
+    <circle cx="0" cy="0" r="15" fill="url(#moonGrad)"/>
+    <!-- Moon Craters (Subtle Depth) -->
+    <circle cx="-3" cy="-2" r="3.2" fill="#1e293b" opacity="0.45"/>
+    <circle cx="4" cy="5" r="2.2" fill="#1e293b" opacity="0.4"/>
+    <circle cx="-5" cy="6" r="1.8" fill="#1e293b" opacity="0.35"/>
+    <!-- Moon Crescent Sun-lit Rim -->
+    <path d="M 0,-15 A 15,15 0 0,1 15,0 A 15,15 0 0,1 0,15 A 15,12 0 0,0 0,-15 Z" fill="#f8fafc" opacity="0.85" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 4. REAL 3D CINEMATIC PLANET (EARTH-LIKE NIGHT SPHERE) -->
+  <!-- ======================================================== -->
+  <!-- Back Orbital Ring Segment (Behind Planet) -->
+  <g transform="rotate(-24 960 190)">
+    <!-- Back half of the primary orbit -->
+    <path d="M 740,190 A 220,54 0 0,1 1180,190" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.35" stroke-dasharray="8,6"/>
+  </g>
+
+  <!-- Planet Main Sphere Group (Clipped to Radius 135 at 960, 190) -->
+  <g id="planet-sphere">
+    <!-- Deep Oceanic Sphere Base -->
+    <circle cx="960" cy="190" r="135" fill="url(#planetOcean)"/>
+
+    <!-- CONTINENT STRUCTURE & ILLUMINATED CITY LIGHTS (Seamless Horizontal Rotation) -->
+    <g clip-path="url(#planetClip)">
+      <!-- 2 Repeated Tiles for Seamless Infinite Rotation -->
+      <g class="planet-rotator">
+        <!-- TILE 1 (Width 360) -->
+        <g transform="translate(800, 70)">
+          <!-- Continents (Dark Earth Landmass Silhouettes) -->
+          <path d="M 30,40 Q 55,20 85,35 Q 115,50 140,30 Q 170,15 190,45 Q 210,80 180,110 Q 150,135 125,120 Q 95,100 80,125 Q 60,150 40,120 Q 15,85 30,40 Z" fill="#061224" opacity="0.95"/>
+          <path d="M 210,50 Q 240,30 280,45 Q 320,65 310,105 Q 295,145 260,150 Q 230,130 220,95 Z" fill="#061224" opacity="0.95"/>
+          <path d="M 90,140 Q 120,130 145,155 Q 165,190 140,210 Q 110,225 95,190 Q 75,160 90,140 Z" fill="#061224" opacity="0.95"/>
+          <path d="M 240,150 Q 275,140 310,165 Q 330,195 295,215 Q 260,225 245,190 Z" fill="#061224" opacity="0.95"/>
+
+          <!-- Golden Night City Lights Networks (Glowing Clusters) -->
+          <g fill="#fef08a" opacity="0.88">
+            <circle cx="65" cy="45" r="1.5"/><circle cx="72" cy="42" r="1.0"/><circle cx="80" cy="50" r="1.8"/>
+            <circle cx="95" cy="55" r="2.2" fill="#ffffff" filter="url(#starGlow)"/>
+            <circle cx="108" cy="48" r="1.4"/><circle cx="120" cy="60" r="1.8"/>
+            <circle cx="135" cy="52" r="2.0" fill="#fcd34d"/><circle cx="145" cy="42" r="1.2"/>
+            <circle cx="160" cy="65" r="2.4" fill="#ffffff" filter="url(#starGlow)"/>
+            <circle cx="172" cy="78" r="1.6"/><circle cx="155" cy="92" r="2.0"/>
+            <circle cx="138" cy="105" r="1.5"/><circle cx="115" cy="95" r="2.2" fill="#fcd34d"/>
+            <circle cx="95" cy="85" r="1.4"/><circle cx="75" cy="95" r="1.8"/>
+            <circle cx="55" cy="75" r="1.2"/>
+
+            <!-- Inter-city Glowing Filament Web Lines -->
+            <path d="M 65,45 L 80,50 L 95,55 L 120,60 L 135,52 L 160,65 L 172,78 L 155,92 L 138,105 L 115,95 L 95,85 Z" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.6"/>
+            <path d="M 80,50 L 108,48 L 145,42 L 160,65" fill="none" stroke="#fcd34d" stroke-width="0.6" opacity="0.5"/>
+
+            <!-- Secondary Continent City Clusters -->
+            <circle cx="235" cy="55" r="1.8"/><circle cx="250" cy="48" r="1.2"/><circle cx="265" cy="62" r="2.2" fill="#ffffff" filter="url(#starGlow)"/>
+            <circle cx="280" cy="75" r="1.6"/><circle cx="295" cy="90" r="2.0" fill="#fcd34d"/><circle cx="270" cy="115" r="1.8"/>
+            <circle cx="245" cy="100" r="1.5"/><circle cx="230" cy="80" r="2.0"/>
+            <path d="M 235,55 L 265,62 L 280,75 L 295,90 L 270,115 L 245,100 Z" fill="none" stroke="#f59e0b" stroke-width="0.7" opacity="0.6"/>
+
+            <!-- Southern Clusters -->
+            <circle cx="110" cy="160" r="1.6"/><circle cx="125" cy="175" r="2.2" fill="#ffffff"/><circle cx="140" cy="190" r="1.4"/>
+            <circle cx="260" cy="170" r="1.8"/><circle cx="280" cy="185" r="2.2" fill="#fcd34d"/><circle cx="295" cy="200" r="1.5"/>
+            <path d="M 110,160 L 125,175 L 140,190" fill="none" stroke="#f59e0b" stroke-width="0.6" opacity="0.5"/>
+            <path d="M 260,170 L 280,185 L 295,200" fill="none" stroke="#f59e0b" stroke-width="0.6" opacity="0.5"/>
+          </g>
+        </g>
+
+        <!-- TILE 2 (Identical Clone Translated +360px for Seamless Wrap) -->
+        <g transform="translate(1160, 70)">
+          <path d="M 30,40 Q 55,20 85,35 Q 115,50 140,30 Q 170,15 190,45 Q 210,80 180,110 Q 150,135 125,120 Q 95,100 80,125 Q 60,150 40,120 Q 15,85 30,40 Z" fill="#061224" opacity="0.95"/>
+          <path d="M 210,50 Q 240,30 280,45 Q 320,65 310,105 Q 295,145 260,150 Q 230,130 220,95 Z" fill="#061224" opacity="0.95"/>
+          <path d="M 90,140 Q 120,130 145,155 Q 165,190 140,210 Q 110,225 95,190 Q 75,160 90,140 Z" fill="#061224" opacity="0.95"/>
+          <path d="M 240,150 Q 275,140 310,165 Q 330,195 295,215 Q 260,225 245,190 Z" fill="#061224" opacity="0.95"/>
+
+          <g fill="#fef08a" opacity="0.88">
+            <circle cx="65" cy="45" r="1.5"/><circle cx="72" cy="42" r="1.0"/><circle cx="80" cy="50" r="1.8"/>
+            <circle cx="95" cy="55" r="2.2" fill="#ffffff" filter="url(#starGlow)"/>
+            <circle cx="108" cy="48" r="1.4"/><circle cx="120" cy="60" r="1.8"/>
+            <circle cx="135" cy="52" r="2.0" fill="#fcd34d"/><circle cx="145" cy="42" r="1.2"/>
+            <circle cx="160" cy="65" r="2.4" fill="#ffffff" filter="url(#starGlow)"/>
+            <circle cx="172" cy="78" r="1.6"/><circle cx="155" cy="92" r="2.0"/>
+            <circle cx="138" cy="105" r="1.5"/><circle cx="115" cy="95" r="2.2" fill="#fcd34d"/>
+            <circle cx="95" cy="85" r="1.4"/><circle cx="75" cy="95" r="1.8"/>
+            <circle cx="55" cy="75" r="1.2"/>
+
+            <path d="M 65,45 L 80,50 L 95,55 L 120,60 L 135,52 L 160,65 L 172,78 L 155,92 L 138,105 L 115,95 L 95,85 Z" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.6"/>
+            <path d="M 80,50 L 108,48 L 145,42 L 160,65" fill="none" stroke="#fcd34d" stroke-width="0.6" opacity="0.5"/>
+
+            <circle cx="235" cy="55" r="1.8"/><circle cx="250" cy="48" r="1.2"/><circle cx="265" cy="62" r="2.2" fill="#ffffff" filter="url(#starGlow)"/>
+            <circle cx="280" cy="75" r="1.6"/><circle cx="295" cy="90" r="2.0" fill="#fcd34d"/><circle cx="270" cy="115" r="1.8"/>
+            <circle cx="245" cy="100" r="1.5"/><circle cx="230" cy="80" r="2.0"/>
+            <path d="M 235,55 L 265,62 L 280,75 L 295,90 L 270,115 L 245,100 Z" fill="none" stroke="#f59e0b" stroke-width="0.7" opacity="0.6"/>
+
+            <circle cx="110" cy="160" r="1.6"/><circle cx="125" cy="175" r="2.2" fill="#ffffff"/><circle cx="140" cy="190" r="1.4"/>
+            <circle cx="260" cy="170" r="1.8"/><circle cx="280" cy="185" r="2.2" fill="#fcd34d"/><circle cx="295" cy="200" r="1.5"/>
+            <path d="M 110,160 L 125,175 L 140,190" fill="none" stroke="#f59e0b" stroke-width="0.6" opacity="0.5"/>
+            <path d="M 260,170 L 280,185 L 295,200" fill="none" stroke="#f59e0b" stroke-width="0.6" opacity="0.5"/>
+          </g>
+        </g>
       </g>
 
-      <!-- Connecting holographic lines -->
-      <line x1="0" y1="-48" x2="0" y2="-22" stroke="#5eead4" stroke-width="1" stroke-dasharray="2,2" opacity="0.8"/>
-      <line x1="-42" y1="-24" x2="-18" y2="-11" stroke="#5eead4" stroke-width="1" stroke-dasharray="2,2" opacity="0.8"/>
-      <line x1="42" y1="-24" x2="18" y2="-11" stroke="#5eead4" stroke-width="1" stroke-dasharray="2,2" opacity="0.8"/>
-      <line x1="0" y1="48" x2="0" y2="22" stroke="#5eead4" stroke-width="1" stroke-dasharray="2,2" opacity="0.8"/>
-
-      <!-- Pulsing Node Vertices -->
-      <circle cx="0" cy="-48" r="2.8" fill="#5eead4" filter="url(#subtleGlow)"/>
-      <circle cx="42" cy="-24" r="2.8" fill="#5eead4" filter="url(#subtleGlow)"/>
-      <circle cx="-42" cy="-24" r="2.8" fill="#5eead4" filter="url(#subtleGlow)"/>
-      <circle cx="0" cy="48" r="2.8" fill="#5eead4" filter="url(#subtleGlow)"/>
-      <circle cx="-42" cy="24" r="2.8" fill="#5eead4" filter="url(#subtleGlow)"/>
-      <circle cx="42" cy="24" r="2.8" fill="#5eead4" filter="url(#subtleGlow)"/>
+      <!-- Deep Day/Night Shadow Terminator Gradient (Night-side Falloff) -->
+      <rect x="825" y="55" width="270" height="270" fill="url(#planetTerminator)"/>
     </g>
 
-    <!-- Tech Telemetry Labels -->
-    <text x="155" y="278" text-anchor="middle" class="font-mono" font-size="9" fill="#5eead4" letter-spacing="3" opacity="0.75">SYSTEM: ONLINE</text>
-    <text x="155" y="292" text-anchor="middle" class="font-mono" font-size="8" fill="#64748b" letter-spacing="2">NEURAL CORE 3.0</text>
+    <!-- Cool Blue Atmospheric Rim Halo (Fresnel Edge) -->
+    <circle cx="960" cy="190" r="135" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.65" filter="url(#softGlow)" class="atmo-breathe"/>
+    <circle cx="960" cy="190" r="137" fill="url(#atmoGlow)" opacity="0.75"/>
+
+    <!-- Brilliant Warm Golden Sunrise Rim Flare (Upper-Right) -->
+    <path d="M 960,55 A 135,135 0 0,1 1095,190 A 135,120 0 0,0 960,55 Z" fill="url(#planetSunrise)" filter="url(#softGlow)"/>
+
+    <!-- Intense Rim Specular Point (The Sunrise Focal Point) -->
+    <circle cx="1065" cy="120" r="12" fill="#ffffff" opacity="0.8" filter="url(#softGlow)"/>
+    <circle cx="1065" cy="120" r="4" fill="#ffffff"/>
+  </g>
+
+  <!-- Front Orbital Ring Segment (Passing in Front of Planet) -->
+  <g transform="rotate(-24 960 190)">
+    <!-- Thin Secondary Subtle Orbit -->
+    <ellipse cx="960" cy="190" rx="230" ry="58" fill="none" stroke="#93c5fd" stroke-width="0.6" stroke-opacity="0.25" stroke-dasharray="4,8"/>
+
+    <!-- Primary Thin Warm Golden 3D Orbit -->
+    <path d="M 1180,190 A 220,54 0 0,1 740,190" fill="none" stroke="url(#goldOrbitGrad)" stroke-width="1.8" filter="url(#softGlow)"/>
+    <!-- Intense specular point where orbit crosses the sunrise rim -->
+    <circle cx="1080" cy="165" r="3.5" fill="#ffffff" filter="url(#starGlow)"/>
+    <circle cx="1080" cy="165" r="1.8" fill="#fef08a"/>
   </g>
 
   <!-- ======================================================== -->
-  <!-- RIGHT SIDE: 3D CYBERNETIC NODE & QUANTUM SPHERE -->
+  <!-- 5. CINEMATIC DARK MOUNTAIN LANDSCAPE (BOTTOM LAYERS) -->
   <!-- ======================================================== -->
-  <g id="right-3d-hologram">
-    <g class="right-node-rotate">
-      <ellipse cx="1045" cy="195" rx="68" ry="26" fill="none" stroke="#f0a868" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.6"/>
-      <circle cx="1113" cy="195" r="3.2" fill="#f0a868" filter="url(#subtleGlow)"/>
+  <g id="mountain-landscape" filter="url(#mountainShadow)">
+    <!-- ATMOSPHERIC CLOUD NEBULA LAYER (Under Planet on Lower Right) -->
+    <g opacity="0.55">
+      <ellipse cx="920" cy="350" r="140" ry="35" fill="#f59e0b" opacity="0.18" filter="url(#softGlow)"/>
+      <ellipse cx="1040" cy="365" r="160" ry="40" fill="#ea580c" opacity="0.15" filter="url(#softGlow)"/>
+      <ellipse cx="800" cy="370" r="110" ry="30" fill="#d97706" opacity="0.12" filter="url(#softGlow)"/>
     </g>
 
-    <g class="right-node-rev">
-      <ellipse cx="1045" cy="195" rx="68" ry="26" fill="none" stroke="#818cf8" stroke-width="1" stroke-dasharray="4,5" opacity="0.55" transform="rotate(60 1045 195)"/>
-      <circle cx="1045" cy="127" r="3" fill="#818cf8" filter="url(#subtleGlow)"/>
+    <!-- BACK LAYER: Distant Mountain Peaks (Deep Navy Silhouettes) -->
+    <path d="M 0,420 L 0,335 L 45,310 L 95,335 L 140,295 L 200,340 L 265,305 L 340,350 L 410,290 L 485,345 L 560,300 L 635,340 L 715,295 L 790,340 L 870,305 L 945,345 L 1020,310 L 1100,345 L 1160,320 L 1200,335 L 1200,420 Z" fill="#081020"/>
+
+    <!-- MID LAYER: Snow-Capped Mountain Ridges with Starlight Reflections -->
+    <path d="M 0,420 L 0,345 L 60,315 L 115,350 L 180,290 L 245,345 L 320,315 L 390,360 L 465,280 L 530,345 L 610,310 L 685,355 L 760,290 L 835,340 L 910,295 L 985,345 L 1060,305 L 1130,345 L 1200,315 L 1200,420 Z" fill="#0a1528"/>
+
+    <!-- Mid Layer Snow Facets (Cool Blue-Silver Highlights on Ridges) -->
+    <g fill="#475569" opacity="0.65">
+      <!-- Ridge 1 at x=180 -->
+      <polygon points="180,290 195,315 175,325 165,305" fill="#64748b"/>
+      <polygon points="180,290 165,305 175,325 180,335" fill="#94a3b8" opacity="0.8"/>
+      <!-- Ridge 2 at x=465 -->
+      <polygon points="465,280 485,310 460,325 450,295" fill="#64748b"/>
+      <polygon points="465,280 450,295 460,325 468,340" fill="#cbd5e1" opacity="0.85"/>
+      <!-- Ridge 3 at x=760 -->
+      <polygon points="760,290 780,315 755,330 745,305" fill="#94a3b8"/>
+      <!-- Warm Sunrise Highlights on Right Ridges (x=910, 1060) -->
+      <polygon points="910,295 930,320 905,335 895,310" fill="#d97706" opacity="0.75"/>
+      <polygon points="910,295 895,310 905,335 912,345" fill="#fcd34d" opacity="0.85"/>
+      <polygon points="1060,305 1080,325 1055,340 1045,315" fill="#f59e0b" opacity="0.8"/>
     </g>
 
-    <!-- Isometric Octahedron / Neural Network Cluster -->
-    <g transform="translate(1045, 195)" filter="url(#shadow3D)">
-      <!-- Outer diamond wireframe -->
-      <polygon points="0,-42 36,0 0,42 -36,0" fill="#1e1b4b" fill-opacity="0.35" stroke="#818cf8" stroke-width="1.5"/>
-      <polygon points="0,-42 22,0 0,42 -22,0" fill="#312e81" fill-opacity="0.3" stroke="#f0a868" stroke-width="1.2"/>
-      <line x1="-36" y1="0" x2="36" y2="0" stroke="#f0a868" stroke-width="1.4" opacity="0.8"/>
-      <line x1="0" y1="-42" x2="0" y2="42" stroke="#818cf8" stroke-width="1.4" opacity="0.8"/>
+    <!-- FORE LAYER: Dramatic Jagged Front Peaks -->
+    <path d="M 0,420 L 0,365 L 75,330 L 150,380 L 230,320 L 310,385 L 400,335 L 480,395 L 575,330 L 660,390 L 750,340 L 840,400 L 935,345 L 1025,395 L 1120,340 L 1200,375 L 1200,420 Z" fill="#040812"/>
 
-      <!-- Glowing center singularity -->
-      <circle cx="0" cy="0" r="10" fill="#f0a868" fill-opacity="0.25"/>
-      <circle cx="0" cy="0" r="5" fill="#f0a868" filter="url(#neonGlow)"/>
+    <!-- Foreground Ridge Snow Caps & Razor Highlights -->
+    <g opacity="0.9">
+      <!-- Left Peak Snow Highlight (x=75) -->
+      <polygon points="75,330 88,350 72,360 65,340" fill="#94a3b8"/>
+      <line x1="75" y1="330" x2="88" y2="350" stroke="#cbd5e1" stroke-width="1.2"/>
 
-      <circle cx="0" cy="-42" r="2.8" fill="#818cf8"/>
-      <circle cx="36" cy="0" r="2.8" fill="#f0a868"/>
-      <circle cx="0" cy="42" r="2.8" fill="#818cf8"/>
-      <circle cx="-36" cy="0" r="2.8" fill="#f0a868"/>
+      <!-- Main Left Peak Snow (x=230) -->
+      <polygon points="230,320 248,345 225,360 215,335" fill="#cbd5e1"/>
+      <polygon points="230,320 215,335 225,360 232,375" fill="#f8fafc" opacity="0.9"/>
+      <line x1="230" y1="320" x2="248" y2="345" stroke="#ffffff" stroke-width="1.5"/>
+
+      <!-- Center-Left Peak (x=400) -->
+      <polygon points="400,335 418,360 395,370 388,348" fill="#94a3b8"/>
+      <line x1="400" y1="335" x2="418" y2="360" stroke="#cbd5e1" stroke-width="1.2"/>
+
+      <!-- Center Peak (x=575) -->
+      <polygon points="575,330 595,355 570,370 560,345" fill="#cbd5e1"/>
+      <polygon points="575,330 560,345 570,370 578,385" fill="#ffffff" opacity="0.85"/>
+      <line x1="575" y1="330" x2="595" y2="355" stroke="#ffffff" stroke-width="1.5"/>
+
+      <!-- Center-Right Peak (x=750) -->
+      <polygon points="750,340 770,365 745,378 735,355" fill="#cbd5e1"/>
+      <!-- Warm sunset edge on right facet -->
+      <polygon points="750,340 735,355 745,378 752,390" fill="#fcd34d" opacity="0.75"/>
+      <line x1="750" y1="340" x2="770" y2="365" stroke="#fef08a" stroke-width="1.2"/>
+
+      <!-- Right Peak catching intense sunrise flare (x=935) -->
+      <polygon points="935,345 955,368 930,380 920,360" fill="#f59e0b" opacity="0.85"/>
+      <polygon points="935,345 920,360 930,380 936,395" fill="#fef08a" opacity="0.95"/>
+      <line x1="935" y1="345" x2="955" y2="368" stroke="#ffffff" stroke-width="1.6" filter="url(#starGlow)"/>
+
+      <!-- Far Right Peak (x=1120) -->
+      <polygon points="1120,340 1140,362 1115,375 1105,355" fill="#f59e0b" opacity="0.8"/>
+      <polygon points="1120,340 1105,355 1115,375 1122,390" fill="#fcd34d" opacity="0.9"/>
+      <line x1="1120" y1="340" x2="1140" y2="362" stroke="#fef08a" stroke-width="1.4"/>
     </g>
 
-    <text x="1045" y="278" text-anchor="middle" class="font-mono" font-size="9" fill="#f0a868" letter-spacing="3" opacity="0.75">AI / ML · SYNAPSE</text>
-    <text x="1045" y="292" text-anchor="middle" class="font-mono" font-size="8" fill="#64748b" letter-spacing="2">SAR + AIS MATRIX</text>
+    <!-- Valley Floor Atmospheric Mist / Low Fog -->
+    <rect x="0" y="380" width="1200" height="40" fill="url(#spaceBg)" opacity="0.75"/>
   </g>
 
   <!-- ======================================================== -->
-  <!-- CENTER HERO SECTION -->
+  <!-- 6. HERO WORDMARK & CUSTOM METALLIC R IDENTITY -->
   <!-- ======================================================== -->
+  <g id="hero-identity" transform="translate(100, 145)">
 
-  <!-- Top Status Radar Pill -->
-  <g transform="translate(600, 52)">
-    <rect x="-185" y="-14" width="370" height="28" rx="14" fill="#0d1f2d" stroke="#5eead4" stroke-width="1" stroke-opacity="0.45" filter="url(#shadow3D)"/>
-    
-    <!-- Radar ping dot -->
-    <circle cx="-162" cy="0" r="4" fill="#5eead4" filter="url(#subtleGlow)"/>
-    <circle cx="-162" cy="0" r="4" fill="none" stroke="#5eead4" stroke-width="1.5" class="ping-circle"/>
+    <!-- ====================================================== -->
+    <!-- CUSTOM METALLIC SILVER 'R' EMBLEM (INTEGRATED FIRST LETTER) -->
+    <!-- ====================================================== -->
+    <g id="custom-r-emblem" transform="translate(0, -6)">
+      <!-- Golden Orbit Ring tilted around R loop -->
+      <g class="r-orbit">
+        <ellipse cx="32" cy="24" rx="42" ry="13" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-opacity="0.85" filter="url(#softGlow)"/>
+        <ellipse cx="32" cy="24" rx="42" ry="13" fill="none" stroke="#fef08a" stroke-width="0.8"/>
+        <!-- Small Luminous Orbiting Celestial Pearl/Sphere -->
+        <circle cx="68" cy="20" r="3.2" fill="#ffffff" filter="url(#starGlow)"/>
+        <circle cx="68" cy="20" r="1.8" fill="#e0f2fe"/>
+      </g>
 
-    <text x="-144" y="4" class="font-mono" font-size="10.5" font-weight="600" fill="#5eead4" letter-spacing="2.5">
-      SDE · AI/ML · FULL-STACK ENGINEER
+      <!-- Deep Ambient 3D Shadow for R -->
+      <path d="M 0,0 L 26,0 C 44,0 56,8 56,24 C 56,36 48,44 38,47 L 58,82 L 40,82 L 23,50 L 14,50 L 14,82 L 0,82 Z M 14,12 L 14,38 L 26,38 C 36,38 42,32 42,25 C 42,18 36,12 26,12 Z" fill="#000000" opacity="0.7" transform="translate(2, 4)"/>
+
+      <!-- Metallic Chrome Body of R -->
+      <path d="M 0,0 L 26,0 C 44,0 56,8 56,24 C 56,36 48,44 38,47 L 58,82 L 40,82 L 23,50 L 14,50 L 14,82 L 0,82 Z M 14,12 L 14,38 L 26,38 C 36,38 42,32 42,25 C 42,18 36,12 26,12 Z" fill="url(#silverChrome)"/>
+
+      <!-- Polished Inner Bevel Stroke -->
+      <path d="M 0,0 L 26,0 C 44,0 56,8 56,24 C 56,36 48,44 38,47 L 58,82 L 40,82 L 23,50 L 14,50 L 14,82 L 0,82 Z M 14,12 L 14,38 L 26,38 C 36,38 42,32 42,25 C 42,18 36,12 26,12 Z" fill="none" stroke="url(#chromeBevel)" stroke-width="1.2"/>
+
+      <!-- Top Chrome Razor Edge Highlight -->
+      <path d="M 0,0 L 26,0 C 35,0 44,3 48,8" fill="none" stroke="#ffffff" stroke-width="1.8" filter="url(#softGlow)"/>
+      <line x1="0" y1="0" x2="0" y2="82" stroke="#ffffff" stroke-width="1.5" opacity="0.9"/>
+
+      <!-- Specular Light Sheen Sweep (Occasional slow reflective highlight) -->
+      <g clip-path="url(#rClip)">
+        <rect x="-60" y="-10" width="35" height="100" fill="url(#sheenPass)" class="sheen-r" opacity="0.85"/>
+      </g>
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- EDITORIAL SERIF WORDMARK: "OHITH SHEREGAR" -->
+    <!-- ====================================================== -->
+    <!-- Ambient Drop Shadow -->
+    <text x="68" y="60" class="title-serif" font-size="56" fill="#010308" opacity="0.9" transform="translate(1, 3)">
+      OHITH SHEREGAR
     </text>
-  </g>
 
-  <!-- 3D HERO TITLE: ROHITH SHEREGAR -->
-  <!-- Multi-layered 3D extruded depth -->
-  <g transform="translate(600, 138)" text-anchor="middle">
-    <!-- Deep Ambient Glow -->
-    <text class="font-sans" font-size="52" font-weight="900" letter-spacing="6" fill="#5eead4" opacity="0.3" filter="url(#neonGlow)">
-      ROHITH SHEREGAR
+    <!-- Main Gradient Text: Silver transitioning to Blue-Violet -->
+    <text x="68" y="60" class="title-serif" font-size="56" fill="url(#titleSilverViolet)" filter="url(#softGlow)">
+      OHITH SHEREGAR
+    </text>
+    <text x="68" y="60" class="title-serif" font-size="56" fill="url(#titleSilverViolet)">
+      OHITH SHEREGAR
     </text>
 
-    <!-- 3D Extrusion Shadows (Layered for Beveled Depth) -->
-    <text y="5" class="font-sans" font-size="52" font-weight="900" letter-spacing="6" fill="#062828" opacity="0.95">ROHITH SHEREGAR</text>
-    <text y="4" class="font-sans" font-size="52" font-weight="900" letter-spacing="6" fill="#0a3d3c" opacity="0.95">ROHITH SHEREGAR</text>
-    <text y="3" class="font-sans" font-size="52" font-weight="900" letter-spacing="6" fill="#0e5351" opacity="0.95">ROHITH SHEREGAR</text>
-    <text y="2" class="font-sans" font-size="52" font-weight="900" letter-spacing="6" fill="#136966" opacity="0.95">ROHITH SHEREGAR</text>
-    <text y="1" class="font-sans" font-size="52" font-weight="900" letter-spacing="6" fill="#19827e" opacity="0.95">ROHITH SHEREGAR</text>
+    <!-- ====================================================== -->
+    <!-- TAGLINE: "BUILDING INTELLIGENT SYSTEMS FOR A BETTER TOMORROW" -->
+    <!-- ====================================================== -->
+    <g transform="translate(4, 105)">
+      <!-- Drop Shadow for legibility -->
+      <text x="0" y="0" class="tagline-sans" font-size="14.5" fill="#01040a" opacity="0.9" transform="translate(1, 1.5)">
+        BUILDING INTELLIGENT SYSTEMS FOR <tspan fill="#01040a">A BETTER TOMORROW</tspan>
+      </text>
 
-    <!-- Top Metallic Face -->
-    <text y="0" class="font-sans" font-size="52" font-weight="900" letter-spacing="6" fill="url(#titleGrad)">
-      ROHITH SHEREGAR
-    </text>
-
-    <!-- Specular Light Sheen Highlight -->
-    <g clip-path="url(#titleClip)">
-      <rect x="-350" y="-45" width="80" height="60" fill="url(#sheenGrad)" class="sheen-anim" opacity="0.75"/>
-    </g>
-  </g>
-
-  <!-- Decorative Accent Underline with glowing node -->
-  <g transform="translate(600, 160)">
-    <line x1="-220" y1="0" x2="220" y2="0" stroke="url(#linePulseGrad)" stroke-width="1.8"/>
-    <circle cx="0" cy="0" r="3.5" fill="#f0a868" filter="url(#subtleGlow)"/>
-    <polygon points="-220,-3 -220,3 -226,0" fill="#5eead4"/>
-    <polygon points="220,-3 220,3 226,0" fill="#5eead4"/>
-  </g>
-
-  <!-- ======================================================== -->
-  <!-- DYNAMIC ANIMATED TYPING TERMINAL BOX (ROLES & SKILLS) -->
-  <!-- ======================================================== -->
-  <g transform="translate(600, 206)">
-    <!-- Terminal Glass Container -->
-    <rect x="-310" y="-18" width="620" height="38" rx="8" fill="#090f18" stroke="url(#cyanBorderGrad)" stroke-width="1.2" filter="url(#shadow3D)"/>
-    
-    <!-- Mini Terminal Dots -->
-    <circle cx="-290" cy="1" r="3.5" fill="#ef4444" opacity="0.8"/>
-    <circle cx="-278" cy="1" r="3.5" fill="#f59e0b" opacity="0.8"/>
-    <circle cx="-266" cy="1" r="3.5" fill="#10b981" opacity="0.8"/>
-
-    <!-- Terminal Command Prompt Symbol -->
-    <text x="-244" y="6" class="font-mono" font-size="14" font-weight="700" fill="#f0a868">❯</text>
-
-    <!-- 4 CYCLING ANIMATED SUBTITLES (Centered Left-Aligned inside terminal) -->
-    <!-- Item 1: Full-Stack & Systems -->
-    <g class="cycle-1">
-      <text x="-225" y="6" class="font-mono" font-size="13" font-weight="500" fill="#e2e8f0" letter-spacing="0.5">
-        <tspan fill="#5eead4" font-weight="600">Full-Stack Developer</tspan> · React · Spring Boot · Cloud APIs
+      <!-- Main Tagline with silver-white leading into blue-violet -->
+      <text x="0" y="0" class="tagline-sans" font-size="14.5" fill="#e2e8f0" opacity="0.95">
+        BUILDING INTELLIGENT SYSTEMS FOR <tspan fill="#818cf8" font-weight="500">A BETTER TOMORROW</tspan>
       </text>
     </g>
-
-    <!-- Item 2: AI / ML & Computer Vision -->
-    <g class="cycle-2">
-      <text x="-225" y="6" class="font-mono" font-size="13" font-weight="500" fill="#e2e8f0" letter-spacing="0.5">
-        <tspan fill="#5eead4" font-weight="600">AI / ML Engineer</tspan> · PyTorch · Computer Vision · RAG
-      </text>
-    </g>
-
-    <!-- Item 3: Core Philosophy -->
-    <g class="cycle-3">
-      <text x="-225" y="6" class="font-mono" font-size="13" font-weight="500" fill="#e2e8f0" letter-spacing="0.5">
-        <tspan fill="#f0a868" font-weight="600">Building Deployable Software</tspan>, Not Just Demos
-      </text>
-    </g>
-
-    <!-- Item 4: Developer Tooling & Daemon -->
-    <g class="cycle-4">
-      <text x="-225" y="6" class="font-mono" font-size="13" font-weight="500" fill="#e2e8f0" letter-spacing="0.5">
-        <tspan fill="#5eead4" font-weight="600">SDE Architecture</tspan> · ContextOS Daemon · Systems &amp; DSA
-      </text>
-    </g>
-
-    <!-- Blinking Terminal Block Cursor -->
-    <rect x="272" y="-6" width="9" height="15" fill="#5eead4" class="cursor-blink" filter="url(#subtleGlow)"/>
-  </g>
-
-  <!-- ======================================================== -->
-  <!-- FLOATING 3D GLASS BADGES -->
-  <!-- ======================================================== -->
-  <g transform="translate(600, 276)">
-    <!-- Badge 1: Full-Stack -->
-    <g transform="translate(-255, 0)">
-      <g class="badge-1">
-        <rect x="-68" y="-15" width="136" height="30" rx="15" fill="url(#badgeGradCyan)" stroke="#5eead4" stroke-width="1.2" stroke-opacity="0.65" filter="url(#shadow3D)"/>
-        <text x="0" y="5" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#5eead4" letter-spacing="0.8">
-          ⚡ FULL-STACK
-        </text>
-      </g>
-    </g>
-
-    <!-- Badge 2: AI / ML -->
-    <g transform="translate(-85, 0)">
-      <g class="badge-2">
-        <rect x="-58" y="-15" width="116" height="30" rx="15" fill="url(#badgeGradAmber)" stroke="#f0a868" stroke-width="1.2" stroke-opacity="0.65" filter="url(#shadow3D)"/>
-        <text x="0" y="5" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#f0a868" letter-spacing="0.8">
-          🧠 AI / ML
-        </text>
-      </g>
-    </g>
-
-    <!-- Badge 3: Vision & SAR -->
-    <g transform="translate(85, 0)">
-      <g class="badge-3">
-        <rect x="-68" y="-15" width="136" height="30" rx="15" fill="url(#badgeGradIndigo)" stroke="#818cf8" stroke-width="1.2" stroke-opacity="0.65" filter="url(#shadow3D)"/>
-        <text x="0" y="5" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#a5b4fc" letter-spacing="0.8">
-          👁️ VISION &amp; SAR
-        </text>
-      </g>
-    </g>
-
-    <!-- Badge 4: Systems & APIs -->
-    <g transform="translate(255, 0)">
-      <g class="badge-4">
-        <rect x="-68" y="-15" width="136" height="30" rx="15" fill="url(#badgeGradCyan)" stroke="#5eead4" stroke-width="1.2" stroke-opacity="0.65" filter="url(#shadow3D)"/>
-        <text x="0" y="5" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#5eead4" letter-spacing="0.8">
-          ⚙️ SYSTEMS &amp; APIs
-        </text>
-      </g>
-    </g>
-  </g>
-
-  <!-- ======================================================== -->
-  <!-- BOTTOM AUDIO/TECH WAVEFORM VISUALIZER BARS -->
-  <!-- ======================================================== -->
-  <g transform="translate(600, 345)" opacity="0.85">
-    <!-- Equalizer frequency bars radiating outward -->
-    <g stroke="#5eead4" stroke-width="2.2" stroke-linecap="round" opacity="0.65">
-      <!-- Left side -->
-      <line x1="-150" y1="0" x2="-150" y2="-6"><animate attributeName="y2" values="-4;-12;-4" dur="1.2s" repeatCount="indefinite"/></line>
-      <line x1="-135" y1="0" x2="-135" y2="-12"><animate attributeName="y2" values="-8;-18;-6" dur="0.9s" repeatCount="indefinite"/></line>
-      <line x1="-120" y1="0" x2="-120" y2="-8"><animate attributeName="y2" values="-4;-14;-8" dur="1.4s" repeatCount="indefinite"/></line>
-      <line x1="-105" y1="0" x2="-105" y2="-16"><animate attributeName="y2" values="-10;-22;-12" dur="0.8s" repeatCount="indefinite"/></line>
-      <line x1="-90" y1="0" x2="-90" y2="-10"><animate attributeName="y2" values="-6;-16;-8" dur="1.1s" repeatCount="indefinite"/></line>
-      <line x1="-75" y1="0" x2="-75" y2="-20"><animate attributeName="y2" values="-12;-24;-10" dur="0.75s" repeatCount="indefinite"/></line>
-      <line x1="-60" y1="0" x2="-60" y2="-14"><animate attributeName="y2" values="-8;-20;-6" dur="1.3s" repeatCount="indefinite"/></line>
-      <line x1="-45" y1="0" x2="-45" y2="-22"><animate attributeName="y2" values="-14;-26;-12" dur="0.85s" repeatCount="indefinite"/></line>
-      <line x1="-30" y1="0" x2="-30" y2="-15"><animate attributeName="y2" values="-10;-22;-8" dur="1.0s" repeatCount="indefinite"/></line>
-      <line x1="-15" y1="0" x2="-15" y2="-24"><animate attributeName="y2" values="-16;-28;-14" dur="0.7s" repeatCount="indefinite"/></line>
-
-      <!-- Center Peaks -->
-      <line x1="0" y1="0" x2="0" y2="-28" stroke="#f0a868"><animate attributeName="y2" values="-18;-30;-16" dur="0.65s" repeatCount="indefinite"/></line>
-
-      <!-- Right side -->
-      <line x1="15" y1="0" x2="15" y2="-24"><animate attributeName="y2" values="-16;-28;-14" dur="0.7s" repeatCount="indefinite"/></line>
-      <line x1="30" y1="0" x2="30" y2="-15"><animate attributeName="y2" values="-10;-22;-8" dur="1.0s" repeatCount="indefinite"/></line>
-      <line x1="45" y1="0" x2="45" y2="-22"><animate attributeName="y2" values="-14;-26;-12" dur="0.85s" repeatCount="indefinite"/></line>
-      <line x1="60" y1="0" x2="60" y2="-14"><animate attributeName="y2" values="-8;-20;-6" dur="1.3s" repeatCount="indefinite"/></line>
-      <line x1="75" y1="0" x2="75" y2="-20"><animate attributeName="y2" values="-12;-24;-10" dur="0.75s" repeatCount="indefinite"/></line>
-      <line x1="90" y1="0" x2="90" y2="-10"><animate attributeName="y2" values="-6;-16;-8" dur="1.1s" repeatCount="indefinite"/></line>
-      <line x1="105" y1="0" x2="105" y2="-16"><animate attributeName="y2" values="-10;-22;-12" dur="0.8s" repeatCount="indefinite"/></line>
-      <line x1="120" y1="0" x2="120" y2="-8"><animate attributeName="y2" values="-4;-14;-8" dur="1.4s" repeatCount="indefinite"/></line>
-      <line x1="135" y1="0" x2="135" y2="-12"><animate attributeName="y2" values="-8;-18;-6" dur="0.9s" repeatCount="indefinite"/></line>
-      <line x1="150" y1="0" x2="150" y2="-6"><animate attributeName="y2" values="-4;-12;-4" dur="1.2s" repeatCount="indefinite"/></line>
-    </g>
-
-    <!-- Bottom subline text -->
-    <text x="0" y="16" text-anchor="middle" class="font-mono" font-size="8.5" fill="#475569" letter-spacing="4">
-      ARCHITECTURE · ALGORITHMS · AUTOMATION · ARTIFICIAL INTELLIGENCE
-    </text>
   </g>
 </svg>

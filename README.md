@@ -1,6 +1,8 @@
 <div align="center">
 
-<img width="100%" src="./assets/header.svg" alt="Rohith Sheregar — SDE &amp; AI/ML Engineer" />
+<a href="https://rohithsheregar.github.io/rohithsheregar/" target="_blank" rel="noopener">
+  <img width="100%" src="./assets/header.svg" alt="Rohith Sheregar — Building Intelligent Systems For A Better Tomorrow" />
+</a>
 
 <br><br>
 

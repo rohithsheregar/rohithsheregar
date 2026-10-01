@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohith Sheregar — Building Intelligent Systems</title>
+  <meta name="description" content="Rohith Sheregar — Software Development Engineer & AI/ML Engineer. Building deployable software, intelligent systems, and scalable architecture.">
+  
+  <!-- Premium Typography: Cinzel for classical serif wordmark & Inter for modern tagline -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Three.js (r128) via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #020409;
+      --text-silver: #f1f5f9;
+      --text-silver-muted: #94a3b8;
+      --text-violet: #818cf8;
+      --accent-gold: #f59e0b;
+      --accent-amber: #fef08a;
+      --accent-blue: #38bdf8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      color: var(--text-silver);
+      font-family: 'Inter', sans-serif;
+      user-select: none;
+    }
+
+    /* WebGL Canvas Container */
+    #webgl-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: block;
+    }
+
+    /* Cinematic Vignette and Atmospheric Overlays */
+    .cinematic-vignette {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      background: radial-gradient(circle at 50% 40%, transparent 45%, rgba(1, 2, 6, 0.6) 80%, rgba(1, 2, 6, 0.95) 100%);
+    }
+
+    /* Horizon Glow Gradient */
+    .horizon-glow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60%;
+      height: 45%;
+      pointer-events: none;
+      z-index: 2;
+      background: radial-gradient(ellipse at 80% 85%, rgba(245, 158, 11, 0.12) 0%, rgba(234, 88, 12, 0.06) 40%, transparent 75%);
+    }
+
+    /* Hero Typography Layer */
+    .hero-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8vw;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-content {
+      max-width: 720px;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: heroFadeIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    }
+
+    @keyframes heroFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Wordmark row holding the metallic R + OHITH SHEREGAR */
+    .wordmark-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Custom Metallic Silver R with integrated Orbit */
+    .metallic-r-wrap {
+      position: relative;
+      width: 68px;
+      height: 78px;
+      flex-shrink: 0;
+      margin-right: 4px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .metallic-r-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 16px rgba(129, 140, 248, 0.25));
+    }
+
+    /* Wordmark Text */
+    .wordmark-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      line-height: 1;
+      white-space: nowrap;
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 25%, #cbd5e1 50%, #a5b4fc 75%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8));
+    }
+
+    /* Tagline */
+    .tagline-text {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.72rem, 1.2vw, 0.95rem);
+      font-weight: 400;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--text-silver-muted);
+      line-height: 1.6;
+      margin-left: 4px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    .tagline-silver {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    .tagline-violet {
+      color: #818cf8;
+      font-weight: 500;
+      text-shadow: 0 0 12px rgba(129, 140, 248, 0.4);
+    }
+
+    /* Subtle Navigation / Return to GitHub Profile Pill */
+    .back-nav {
+      position: absolute;
+      top: 32px;
+      left: 8vw;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: rgba(10, 16, 30, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      color: var(--text-silver-muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: heroFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+    }
+
+    .back-nav:hover {
+      background: rgba(15, 23, 42, 0.85);
+      border-color: rgba(129, 140, 248, 0.4);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(129, 140, 248, 0.25);
+    }
+
+    .nav-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #818cf8;
+      box-shadow: 0 0 8px #818cf8;
+    }
+
+    /* Sound / Ambient Toggle or Status pill at top-right */
+    .status-pill {
+      position: absolute;
+      top: 32px;
+      right: 8vw;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(10, 16, 30, 0.55);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #fef08a;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: heroFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+    }
+
+    .status-ping {
+      position: relative;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 10px #f59e0b;
+    }
+
+    /* Mobile Responsive Adaptation */
+    @media (max-width: 900px) {
+      .hero-container {
+        padding: 0 6vw;
+        justify-content: flex-end;
+        padding-bottom: 18vh;
+      }
+      .wordmark-row {
+        flex-wrap: wrap;
+      }
+      .metallic-r-wrap {
+        width: 52px;
+        height: 60px;
+      }
+      .wordmark-text {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+      .tagline-text {
+        letter-spacing: 0.2em;
+        font-size: 0.75rem;
+      }
+      .back-nav, .status-pill {
+        top: 20px;
+      }
+    }
+
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, .hero-content, .back-nav, .status-pill {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Return to Profile Navigation -->
+  <a href="https://github.com/rohithsheregar" class="back-nav" id="github-link">
+    <span class="nav-dot"></span>
+    <span>GitHub Profile</span>
+  </a>
+
+  <!-- Realtime System Status -->
+  <div class="status-pill">
+    <span class="status-ping"></span>
+    <span>SDE &middot; AI/ML ARCHITECTURE</span>
+  </div>
+
+  <!-- Three.js Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Cinematic Vignette & Atmospheric Glow -->
+  <div class="cinematic-vignette"></div>
+  <div class="horizon-glow"></div>
+
+  <!-- Hero Typography Overlay -->
+  <div class="hero-container" id="hero-container">
+    <div class="hero-content">
+      
+      <!-- Wordmark Row with Custom Metallic R -->
+      <div class="wordmark-row">
+        <!-- Integrated Sculpted Metallic R -->
+        <div class="metallic-r-wrap">
+          <svg class="metallic-r-svg" viewBox="0 0 70 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="rChromeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="25%" stop-color="#e2e8f0"/>
+                <stop offset="48%" stop-color="#94a3b8"/>
+                <stop offset="68%" stop-color="#ffffff"/>
+                <stop offset="85%" stop-color="#cbd5e1"/>
+                <stop offset="100%" stop-color="#64748b"/>
+              </linearGradient>
+              <linearGradient id="rBevelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+                <stop offset="50%" stop-color="#64748b" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8"/>
+              </linearGradient>
+              <linearGradient id="rOrbitGold" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+                <stop offset="50%" stop-color="#fef08a" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#d97706" stop-opacity="0.2"/>
+              </linearGradient>
+              <filter id="rGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            
+            <!-- Metallic R Chrome Body -->
+            <path d="M 4,2 L 30,2 C 48,2 60,10 60,26 C 60,38 52,46 42,49 L 62,80 L 44,80 L 27,51 L 18,51 L 18,80 L 4,80 Z M 18,14 L 18,39 L 30,39 C 40,39 46,33 46,26 C 46,19 40,14 30,14 Z" fill="url(#rChromeGrad)"/>
+            <path d="M 4,2 L 30,2 C 48,2 60,10 60,26 C 60,38 52,46 42,49 L 62,80 L 44,80 L 27,51 L 18,51 L 18,80 L 4,80 Z M 18,14 L 18,39 L 30,39 C 40,39 46,33 46,26 C 46,19 40,14 30,14 Z" stroke="url(#rBevelGrad)" stroke-width="1.2"/>
+            
+            <!-- Tilted Golden Orbital Ring -->
+            <g transform="rotate(-25 36 28)">
+              <ellipse cx="36" cy="28" rx="34" ry="11" fill="none" stroke="url(#rOrbitGold)" stroke-width="1.5" filter="url(#rGlow)"/>
+              <!-- Orbiting Luminous Celestial Pearl -->
+              <circle cx="68" cy="26" r="3" fill="#ffffff" filter="url(#rGlow)"/>
+              <circle cx="68" cy="26" r="1.5" fill="#e0f2fe"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Remaining Serif Letters -->
+        <h1 class="wordmark-text">OHITH SHEREGAR</h1>
+      </div>
+
+      <!-- Tagline -->
+      <p class="tagline-text">
+        <span class="tagline-silver">BUILDING INTELLIGENT SYSTEMS FOR </span><span class="tagline-violet">A BETTER TOMORROW</span>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- MODULAR THREE.JS 3D WEBGL ENGINE & SCENE ARCHITECTURE          -->
+  <!-- ============================================================== -->
+  <script>
+    /**
+     * PRODUCTION 3D HERO APPLICATION ARCHITECTURE
+     * Modules:
+     *  - ProceduralTextures: Generates high-res Earth night continent & city lights
+     *  - StarField: 3-layer depth-based particle stars
+     *  - PlanetScene: 3D Earth sphere, rotating city lights, Fresnel atmosphere
+     *  - OrbitSystem: 3D thin golden orbital rings with travelling satellite
+     *  - Moon: Companion moon in orbit
+     *  - MountainLayers: Layered cinematic parallax mountain meshes
+     *  - ParallaxController: Smooth mouse interaction
+     */
+
+    // --- PROCEDURAL EARTH NIGHT TEXTURE GENERATOR ---
+    const ProceduralTextures = {
+      createEarthNightTexture() {
+        const width = 2048;
+        const height = 1024;
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+
+        // 1. Deep Midnight Ocean Base
+        const oceanGrad = ctx.createLinearGradient(0, 0, 0, height);
+        oceanGrad.addColorStop(0, '#020611');
+        oceanGrad.addColorStop(0.5, '#061329');
+        oceanGrad.addColorStop(1, '#02050e');
+        ctx.fillStyle = oceanGrad;
+        ctx.fillRect(0, 0, width, height);
+
+        // 2. Continents (Rough Realistic Landmass Clusters)
+        ctx.fillStyle = '#071833';
+        
+        function drawBlob(x, y, w, h, roughness) {
+          ctx.beginPath();
+          ctx.ellipse(x, y, w, h, roughness, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // North America & South America
+        drawBlob(450, 320, 180, 110, -0.3);
+        drawBlob(540, 620, 110, 200, 0.4);
+        // Europe & Africa
+        drawBlob(1020, 300, 140, 100, 0.2);
+        drawBlob(1070, 560, 160, 180, -0.1);
+        // Asia & Australia
+        drawBlob(1420, 320, 280, 160, 0.1);
+        drawBlob(1600, 680, 120, 90, 0.3);
+
+        // 3. Illuminated Golden Night City Lights
+        const cityClusters = [
+          // US East / Midwest / West Coast
+          { x: 420, y: 310, density: 40, r: 80 },
+          { x: 490, y: 300, density: 60, r: 70 },
+          { x: 360, y: 320, density: 35, r: 60 },
+          // Europe
+          { x: 1010, y: 280, density: 70, r: 60 },
+          { x: 1060, y: 310, density: 50, r: 50 },
+          // India / South Asia (Active developer region!)
+          { x: 1390, y: 400, density: 80, r: 65 },
+          // East Asia / Japan
+          { x: 1580, y: 330, density: 75, r: 70 },
+          // South America / Africa Coasts
+          { x: 570, y: 640, density: 30, r: 50 },
+          { x: 1100, y: 720, density: 25, r: 40 },
+          // Australia
+          { x: 1650, y: 710, density: 30, r: 45 },
+        ];
+
+        // Draw glittering golden city clusters
+        cityClusters.forEach(cluster => {
+          for (let i = 0; i < cluster.density; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const dist = Math.random() * cluster.r;
+            const cx = cluster.x + Math.cos(angle) * dist;
+            const cy = cluster.y + Math.sin(angle) * dist;
+
+            const radius = Math.random() * 1.8 + 0.8;
+            const isFocal = Math.random() > 0.85;
+
+            ctx.fillStyle = isFocal ? '#ffffff' : (Math.random() > 0.4 ? '#fef08a' : '#f59e0b');
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Inter-city glowing transit filament web
+            if (i > 0 && Math.random() > 0.7) {
+              ctx.strokeStyle = 'rgba(245, 158, 11, 0.35)';
+              ctx.lineWidth = 0.6;
+              ctx.beginPath();
+              ctx.moveTo(cx, cy);
+              ctx.lineTo(cluster.x, cluster.y);
+              ctx.stroke();
+            }
+          }
+        });
+
+        const texture = new THREE.CanvasTexture(canvas);
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        return texture;
+      }
+    };
+
+    // --- MAIN ENGINE INITIALIZATION ---
+    class SpaceSceneApp {
+      constructor() {
+        this.container = document.body;
+        this.canvas = document.getElementById('webgl-canvas');
+        this.heroContent = document.getElementById('hero-container');
+        this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        this.mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+        this.clock = new THREE.Clock();
+
+        this.initThree();
+        this.initStarField();
+        this.initPlanet();
+        this.initAtmosphere();
+        this.initOrbitalSystem();
+        this.initMoon();
+        this.initMountains();
+        this.initLights();
+        this.initEvents();
+
+        this.animate = this.animate.bind(this);
+        requestAnimationFrame(this.animate);
+      }
+
+      initThree() {
+        this.scene = new THREE.Scene();
+        this.scene.fog = new THREE.FogExp2(0x020409, 0.035);
+
+        this.camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        this.camera.position.set(0, 0, 18);
+
+        this.renderer = new THREE.WebGLRenderer({
+          canvas: this.canvas,
+          antialias: true,
+          alpha: true,
+          powerPreference: 'high-performance'
+        });
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        this.renderer.toneMappingExposure = 1.15;
+      }
+
+      initLights() {
+        // Subtle Deep Space Ambient Light
+        const ambientLight = new THREE.AmbientLight(0x0a162e, 1.2);
+        this.scene.add(ambientLight);
+
+        // Strong Warm Sunrise Key Light (Behind & to the Right of Planet)
+        this.keyLight = new THREE.DirectionalLight(0xfef08a, 4.2);
+        this.keyLight.position.set(22, 12, -8);
+        this.scene.add(this.keyLight);
+
+        // Cool Blue Rim Fill Light
+        this.rimLight = new THREE.DirectionalLight(0x38bdf8, 2.0);
+        this.rimLight.position.set(-18, -6, 5);
+        this.scene.add(this.rimLight);
+      }
+
+      initStarField() {
+        this.starLayers = [];
+
+        // Layer 1: Distant Tiny Stars
+        const starGeo1 = new THREE.BufferGeometry();
+        const starCount1 = 700;
+        const starPos1 = new Float32Array(starCount1 * 3);
+        for (let i = 0; i < starCount1 * 3; i += 3) {
+          starPos1[i] = (Math.random() - 0.5) * 80;
+          starPos1[i + 1] = (Math.random() - 0.5) * 50;
+          starPos1[i + 2] = -25 + (Math.random() - 0.5) * 30;
+        }
+        starGeo1.setAttribute('position', new THREE.BufferAttribute(starPos1, 3));
+        const starMat1 = new THREE.PointsMaterial({
+          size: 0.12,
+          color: 0xe2e8f0,
+          transparent: true,
+          opacity: 0.75
+        });
+        const stars1 = new THREE.Points(starGeo1, starMat1);
+        this.scene.add(stars1);
+        this.starLayers.push({ mesh: stars1, factor: 0.015 });
+
+        // Layer 2: Midground Twinkling Stars
+        const starGeo2 = new THREE.BufferGeometry();
+        const starCount2 = 220;
+        const starPos2 = new Float32Array(starCount2 * 3);
+        const starColors = new Float32Array(starCount2 * 3);
+        const colorPalette = [
+          new THREE.Color(0xffffff),
+          new THREE.Color(0xfef08a),
+          new THREE.Color(0x93c5fd),
+          new THREE.Color(0xa5b4fc)
+        ];
+        for (let i = 0; i < starCount2; i++) {
+          const idx = i * 3;
+          starPos2[idx] = (Math.random() - 0.5) * 60;
+          starPos2[idx + 1] = (Math.random() - 0.5) * 40;
+          starPos2[idx + 2] = -12 + (Math.random() - 0.5) * 18;
+          const col = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+          starColors[idx] = col.r;
+          starColors[idx + 1] = col.g;
+          starColors[idx + 2] = col.b;
+        }
+        starGeo2.setAttribute('position', new THREE.BufferAttribute(starPos2, 3));
+        starGeo2.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+        const starMat2 = new THREE.PointsMaterial({
+          size: 0.22,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.95
+        });
+        const stars2 = new THREE.Points(starGeo2, starMat2);
+        this.scene.add(stars2);
+        this.starLayers.push({ mesh: stars2, factor: 0.035 });
+      }
+
+      initPlanet() {
+        // Group holding planet, atmosphere, and orbits
+        this.planetGroup = new THREE.Group();
+        // Positioned on the right side matching reference composition
+        this.planetGroup.position.set(6.8, 1.2, 0);
+        this.scene.add(this.planetGroup);
+
+        const radius = 4.6;
+        const segments = 64;
+        const planetGeo = new THREE.SphereGeometry(radius, segments, segments);
+
+        this.earthNightMap = ProceduralTextures.createEarthNightTexture();
+
+        this.planetMat = new THREE.MeshStandardMaterial({
+          map: this.earthNightMap,
+          roughness: 0.8,
+          metalness: 0.15,
+          emissive: new THREE.Color(0xf59e0b),
+          emissiveMap: this.earthNightMap,
+          emissiveIntensity: 0.85
+        });
+
+        this.planetMesh = new THREE.Mesh(planetGeo, this.planetMat);
+        // Tilt planet axis slightly
+        this.planetMesh.rotation.z = THREE.MathUtils.degToRad(18);
+        this.planetGroup.add(this.planetMesh);
+      }
+
+      initAtmosphere() {
+        // Atmospheric Rim Halo (Slightly larger sphere with Custom Shader)
+        const atmoGeo = new THREE.SphereGeometry(4.78, 48, 48);
+        
+        // Custom Fresnel Atmosphere Shader
+        const atmoVertexShader = `
+          varying vec3 vNormal;
+          varying vec3 vViewDir;
+          void main() {
+            vNormal = normalize(normalMatrix * normal);
+            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+            vViewDir = normalize(-mvPosition.xyz);
+            gl_Position = projectionMatrix * mvPosition;
+          }
+        `;
+
+        const atmoFragmentShader = `
+          varying vec3 vNormal;
+          varying vec3 vViewDir;
+          void main() {
+            float fresnel = 1.0 - max(dot(vNormal, vViewDir), 0.0);
+            fresnel = pow(fresnel, 2.8);
+            
+            // Blend from electric blue rim to warm golden sunrise flare
+            vec3 coolBlue = vec3(0.22, 0.74, 0.97);
+            vec3 warmGold = vec3(0.99, 0.88, 0.45);
+            vec3 finalColor = mix(coolBlue, warmGold, clamp(vNormal.x * 0.7 + 0.3, 0.0, 1.0));
+            
+            gl_FragColor = vec4(finalColor, fresnel * 0.85);
+          }
+        `;
+
+        const atmoMat = new THREE.ShaderMaterial({
+          vertexShader: atmoVertexShader,
+          fragmentShader: atmoFragmentShader,
+          blending: THREE.AdditiveBlending,
+          side: THREE.BackSide,
+          transparent: true,
+          depthWrite: false
+        });
+
+        this.atmosphereMesh = new THREE.Mesh(atmoGeo, atmoMat);
+        this.planetGroup.add(this.atmosphereMesh);
+      }
+
+      initOrbitalSystem() {
+        this.orbitGroup = new THREE.Group();
+        this.orbitGroup.rotation.x = THREE.MathUtils.degToRad(68);
+        this.orbitGroup.rotation.y = THREE.MathUtils.degToRad(-24);
+        this.planetGroup.add(this.orbitGroup);
+
+        // Thin Golden Orbital Ring
+        const ringRadius = 7.4;
+        const ringTube = 0.024;
+        const ringGeo = new THREE.TorusGeometry(ringRadius, ringTube, 16, 120);
+        const ringMat = new THREE.MeshBasicMaterial({
+          color: 0xf59e0b,
+          transparent: true,
+          opacity: 0.85
+        });
+        const orbitRing = new THREE.Mesh(ringGeo, ringMat);
+        this.orbitGroup.add(orbitRing);
+
+        // Secondary subtle outer orbit ring
+        const outerRingGeo = new THREE.TorusGeometry(ringRadius * 1.18, 0.012, 12, 100);
+        const outerRingMat = new THREE.MeshBasicMaterial({
+          color: 0x93c5fd,
+          transparent: true,
+          opacity: 0.35
+        });
+        const outerRing = new THREE.Mesh(outerRingGeo, outerRingMat);
+        this.orbitGroup.add(outerRing);
+
+        // Luminous Orbiting Satellite / Moon particle
+        const satGeo = new THREE.SphereGeometry(0.12, 16, 16);
+        const satMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        this.satellite = new THREE.Mesh(satGeo, satMat);
+        this.orbitGroup.add(this.satellite);
+
+        this.orbitAngle = 0;
+        this.orbitRadius = ringRadius;
+      }
+
+      initMoon() {
+        // Companion Moon in Orbit (Upper-Right of Planet)
+        const moonRadius = 0.42;
+        const moonGeo = new THREE.SphereGeometry(moonRadius, 32, 32);
+        const moonMat = new THREE.MeshStandardMaterial({
+          color: 0xcbd5e1,
+          roughness: 0.9,
+          metalness: 0.05
+        });
+        this.moonMesh = new THREE.Mesh(moonGeo, moonMat);
+        this.moonMesh.position.set(4.2, 3.8, 1.2);
+        this.planetGroup.add(this.moonMesh);
+      }
+
+      initMountains() {
+        // 3 Distinct Depth-Layered Mountain Silhouettes with Snow Facets
+        this.mountainLayers = [];
+
+        const createMountainLayer = (zPos, yOffset, scaleY, colorHex, roughness) => {
+          const width = 60;
+          const segments = 120;
+          const planeGeo = new THREE.PlaneGeometry(width, 10, segments, 1);
+          const pos = planeGeo.attributes.position;
+
+          // Sculpt cinematic ridge peaks using sine harmonics
+          for (let i = 0; i <= segments; i++) {
+            const x = pos.getX(i);
+            const peak1 = Math.sin(x * 0.35) * 1.8;
+            const peak2 = Math.cos(x * 0.85) * 1.1;
+            const peak3 = Math.sin(x * 1.8 + roughness) * 0.6;
+            const totalElevation = (peak1 + peak2 + peak3 + 3.2) * scaleY;
+            pos.setY(i, totalElevation);
+          }
+          pos.needsUpdate = true;
+          planeGeo.computeVertexNormals();
+
+          const mat = new THREE.MeshStandardMaterial({
+            color: colorHex,
+            roughness: 0.95,
+            metalness: 0.1,
+            flatShading: true
+          });
+
+          const mesh = new THREE.Mesh(planeGeo, mat);
+          mesh.position.set(0, yOffset, zPos);
+          this.scene.add(mesh);
+          return mesh;
+        };
+
+        // Layer 1 (Background distant range)
+        const m1 = createMountainLayer(-8, -4.5, 0.7, 0x081022, 1.2);
+        this.mountainLayers.push({ mesh: m1, factor: 0.02 });
+
+        // Layer 2 (Midground snowy ridges)
+        const m2 = createMountainLayer(-4, -5.2, 0.85, 0x0b162c, 2.5);
+        this.mountainLayers.push({ mesh: m2, factor: 0.045 });
+
+        // Layer 3 (Foreground dark silhouettes with razor peaks)
+        const m3 = createMountainLayer(0, -6.0, 1.0, 0x040813, 3.8);
+        this.mountainLayers.push({ mesh: m3, factor: 0.08 });
+      }
+
+      initEvents() {
+        window.addEventListener('resize', () => {
+          this.camera.aspect = window.innerWidth / window.innerHeight;
+          this.camera.updateProjectionMatrix();
+          this.renderer.setSize(window.innerWidth, window.innerHeight);
+          this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          // Normalize mouse coordinates from -1 to 1
+          this.mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
+          this.mouse.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+          if (e.touches.length > 0) {
+            this.mouse.targetX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+            this.mouse.targetY = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+          }
+        }, { passive: true });
+      }
+
+      animate() {
+        requestAnimationFrame(this.animate);
+
+        const delta = this.clock.getDelta();
+        const elapsedTime = this.clock.getElapsedTime();
+
+        // Smooth mouse damping (Lerp)
+        this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.045;
+        this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.045;
+
+        // 1. Slow, Cinematic Planet Rotation (approx 60s per full rotation)
+        if (!this.reducedMotion) {
+          this.planetMesh.rotation.y += delta * 0.095;
+          
+          // Orbital satellite movement
+          this.orbitAngle += delta * 0.45;
+          this.satellite.position.x = Math.cos(this.orbitAngle) * this.orbitRadius;
+          this.satellite.position.y = Math.sin(this.orbitAngle) * this.orbitRadius;
+
+          // Moon slow orbital drift
+          this.moonMesh.position.x = 4.2 + Math.sin(elapsedTime * 0.12) * 0.4;
+          this.moonMesh.position.y = 3.8 + Math.cos(elapsedTime * 0.12) * 0.3;
+        }
+
+        // 2. Interactive Parallax Controller
+        // Camera responds with delicate, controlled depth motion
+        this.camera.position.x = this.mouse.x * 0.45;
+        this.camera.position.y = this.mouse.y * 0.35;
+        this.camera.lookAt(0, 0, 0);
+
+        // Planet parallax response
+        this.planetGroup.position.x = 6.8 + this.mouse.x * 0.35;
+        this.planetGroup.position.y = 1.2 + this.mouse.y * 0.25;
+
+        // Mountain layers parallax
+        this.mountainLayers.forEach(layer => {
+          layer.mesh.position.x = -this.mouse.x * layer.factor * 12;
+        });
+
+        // Stars parallax
+        this.starLayers.forEach(layer => {
+          layer.mesh.position.x = -this.mouse.x * layer.factor * 15;
+          layer.mesh.position.y = -this.mouse.y * layer.factor * 10;
+        });
+
+        // Subtle 3D Typography tilt
+        if (this.heroContent) {
+          const tiltX = -this.mouse.y * 4;
+          const tiltY = this.mouse.x * 4;
+          this.heroContent.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translate3d(${this.mouse.x * 8}px, ${-this.mouse.y * 6}px, 0)`;
+        }
+
+        this.renderer.render(this.scene, this.camera);
+      }
+    }
+
+    // Launch Application
+    window.addEventListener('DOMContentLoaded', () => {
+      new SpaceSceneApp();
+    });
+  </script>
+</body>
+</html>
